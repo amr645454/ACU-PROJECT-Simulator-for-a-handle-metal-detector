@@ -11,16 +11,9 @@ class Battery {
             currentPwr = 100;
             maxPwr = 100; // for upgrading and to display like 30/100
         }
-        Battery(int maxPower) {
-            this->maxPwr = maxPower;
-            currentPwr = maxPower;
-        }
-        int getcurrentPwr() {
-            return currentPwr;
-        }
-        int getmaxPwr() {
-            return maxPwr;
-        }
+        Battery(int maxPower) {this->maxPwr = maxPower;currentPwr = maxPower;}
+        int getcurrentPwr() {return currentPwr;}
+        int getmaxPwr() {return maxPwr;}
         void upgrade(int extra){ //upgrade function
             maxPwr += extra;
             currentPwr = maxPwr;
@@ -34,7 +27,7 @@ class Battery {
         void operator-(int drain){ // same as above
             if (currentPwr < drain) {
                 currentPwr = 0;
-                throw runtime_error("Battery is completely dead!"); // exception handling test. yassmin should use catch.
+                throw runtime_error("Battery is completely dead!"); // exception handling test. yassmin should add more exceptions and then use catch.
             }
             currentPwr -= drain;
             cout << " Battery Drained! Current Power: " << currentPwr << "\n";
